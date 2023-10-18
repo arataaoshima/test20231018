@@ -1,0 +1,14 @@
+<p>
+<%= @post.title %> posted by: <%= link_to @post.user.username, user_path(@post.user) %>
+</p>
+<% if @post.categories %>
+    <% @post.categories.each do |c| %>
+        <%= c.category_name %>
+    <% end %>
+<% end %>
+<p class="trix-content">
+    <%= @post.content %>
+</p>
+
+<%= link_to "Delete this Post", post_path, data: { "turbo-method": :delete }%>
+<%= link_to "Go back to Post Index", posts_path %>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App10</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <% if @current_user %>
+      <%= @current_user.username %>
+      <%= link_to "Logout", logout_path, "data": {turbo_method: :post} %>
+    <% else %>
+      <%= link_to "Login", "/login_page" %>
+    <% end %>
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

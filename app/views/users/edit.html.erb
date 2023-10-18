@@ -1,0 +1,26 @@
+<h1> Edit User </h1>
+<% @user.errors.full_messages.each do |message| %>
+    <strong><%= message %></strong><br>
+<% end %>
+
+<%= form_with(model: @user) do |form| %>
+    <p>
+        <%= form.label :username %>
+        <%= form.text_field :username %>
+    </p>
+    <p>
+        <%= form.label :email %>
+        <%= form.email_field :email %>
+    </p>
+    <p>
+        <%= form.label :user_image %>
+        <%= form.file_field :user_image %>
+    </p>
+    <p>
+        <%= form.label :password %><br>
+        <%= form.password_field :password %>
+    </p>
+    <p>
+        <%= form.submit %>
+    </p>
+<% end %>

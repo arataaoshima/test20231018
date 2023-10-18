@@ -1,0 +1,11 @@
+<%= @user.username %>
+
+<h1>Posts</h1>
+<% @user.posts.each do |post| %>
+    <%= link_to post.title, post_path(post) %><br>
+<% end %>
+
+<%= image_tag @user.user_image if @user.user_image.attached? %>
+
+<%= link_to "Delete this User", user_path, data: { "turbo-method": :delete }%>
+<%= link_to "Go back to User Index", users_path %>
