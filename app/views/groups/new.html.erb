@@ -1,0 +1,8 @@
+<h1> Create Groups</h1>
+<%= form_with(model: @group) do |form| %>
+    <p>
+        <%= form.label :group_name %>
+        <%= form.text_field :group_name %>
+    </p>
+        <%= form.submit %>
+<% end %>
