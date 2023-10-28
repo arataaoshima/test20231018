@@ -2,5 +2,5 @@
 <%= link_to "New Article", new_article_path %>
 </p>
 <% @articles.each do |article| %>
-    <%= article.article_title %><br>
+    <%= article.article_title %> | <%= link_to "Edit", edit_article_path(article) %> <br>
 <% end %>

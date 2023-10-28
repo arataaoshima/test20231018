@@ -14,9 +14,17 @@ class ArticlesController < ApplicationController
     end
 
     def edit
+      @article = Article.find_by(id: params[:id])
     end
 
     def update
+      @article = Article.find(params[:id])
+
+      if @article.update(article_params)
+        redirect_to articles_path
+      else
+        render 'edit'
+      end
     end
 
     def show
@@ -34,5 +42,5 @@ class ArticlesController < ApplicationController
     def article_params
         params.require(:article).permit(:article_title)
     end
-    
+
 end
