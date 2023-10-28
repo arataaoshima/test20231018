@@ -4,5 +4,11 @@
         <%= form.label :article_title %>
         <%= form.text_field :article_title %>
     </p>
+    <p>
+        <%= form.label :groups %>
+                <%= form.collection_check_boxes :group_ids, Group.all, :id, :group_name do |g| %>
+            <%= g.label(class: "checkbox-inline input_checkbox") {g.check_box(class: "checkbox") + g.text} %>
+        <% end %>
+    </p>
     <%= form.submit %>
-<% end %> 
+<% end %>

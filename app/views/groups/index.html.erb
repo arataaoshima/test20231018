@@ -1,7 +1,8 @@
 <h1>Group Index for Articles</h1>
 <p>
 <% @groups.each do |group| %>
-    <%= group.group_name %><br>
+    ID: <%= group.id %> |<%= group.group_name %> Test Number: <%= group.test_number %>
+    <br>
 <% end %>
 </p>
 <%= link_to "Create New Group", new_group_path %>

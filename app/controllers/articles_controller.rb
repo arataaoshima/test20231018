@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
     private
 
     def article_params
-        params.require(:article).permit(:article_title)
+        params.require(:article).permit(:article_title, group_ids:[])
     end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_18_141332) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_28_143536) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -51,7 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_18_141332) do
 
   create_table "article_groups", force: :cascade do |t|
     t.integer "article_id"
-    t.integer "gorup_id"
+    t.integer "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -72,6 +72,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_18_141332) do
     t.string "group_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "test_number"
   end
 
   create_table "post_categories", force: :cascade do |t|
