@@ -28,6 +28,7 @@ class ArticlesController < ApplicationController
     end
 
     def show
+      @article = Article.find(params[:id])
     end
 
     def index
@@ -40,7 +41,7 @@ class ArticlesController < ApplicationController
     private
 
     def article_params
-        params.require(:article).permit(:article_title, group_ids:[])
+        params.require(:article).permit(:article_title, :content, group_ids:[])
     end
 
 end

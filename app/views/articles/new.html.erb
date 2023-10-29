@@ -10,5 +10,9 @@
             <%= g.label(class: "checkbox-inline input_checkbox") {g.check_box(class: "checkbox") + g.text} %>
         <% end %>
     </p>
+    <p>
+      <%= form.label :content %>
+      <%= form.rich_text_area :content %>
+    </p>
     <%= form.submit %>
 <% end %>
