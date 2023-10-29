@@ -2,7 +2,7 @@ class HomeController < ApplicationController
         require 'googleauth/id_tokens/verifier'
 
         protect_from_forgery except: :callback
-        before_action :verify_g_csrf_token
+        #before_action :verify_g_csrf_token, only:[:callback]
 
         def top
         end
@@ -26,12 +26,12 @@ class HomeController < ApplicationController
         end
 
         def callback
-                payload = Google::Auth::IDTokens.verify_oidc(params[:credential], aud: 'YOUR GOOGLE CLIENT ID')
-                user = User.find_or_create_by(email: payload['email'])
-                session[:user_id] = user.id
-                redirect_to after_login_path, notice: 'ログインしました'
+                payload = Google::Auth::IDTokens.verify_oidc(params[:credential], aud: ENV['GOOGLE_CLIENT_ID'])
+                @user = User.find_or_create_by(username:payload['given_nam'],email: payload['email'])
+                session[:user_id] = @user.id
+                redirect_to posts_path
         end
-        
+
         private
 
         def verify_g_csrf_token
